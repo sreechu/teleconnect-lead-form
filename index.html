@@ -35,34 +35,35 @@
 </head>
 <body>
   <h2>TeleConnect Lead Capture Form</h2>
-  <form id="leadForm" onsubmit="handleSubmit(event)">
-    <label for="firstname">First Name:</label>
-    <input type="text" id="firstname" name="firstname" required>
+  
+   <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D61000000a6Y6" method="POST">
 
-    <label for="lastname">Last Name:</label>
-    <input type="text" id="lastname" name="lastname" required>
+<input type=hidden name="oid" value="00D61000000a6Y6">
+<input type=hidden name="retURL" value="http://">
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+<!--  these lines if you wish to test in debug mode.                          -->
+<!--  <input type="hidden" name="debug" value=1>                              -->
+<!--  <input type="hidden" name="debugEmail" value="s.sreechu@gmail.com">     -->
+<!--  ----------------------------------------------------------------------  -->
 
-    <label for="phone">Phone:</label>
-    <input type="tel" id="phone" name="phone" pattern="[0-9\-\s]+" placeholder="e.g. 555-123-4567">
+<label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
 
-    <label for="products">Products of Interest (select one or more):</label>
-    <select id="products" name="products" multiple required>
-      <option value="Basic Surfer">Basic Surfer</option>
-      <option value="Family Connect">Family Connect</option>
-      <option value="Gamer/Streamer Pro">Gamer/Streamer Pro</option>
-      <option value="Rural Connect">Rural Connect</option>
-      <option value="5G Home Internet">5G Home Internet</option>
-      <option value="Entry-Level Unlimited">Entry-Level Unlimited</option>
-      <option value="Standard Unlimited">Standard Unlimited</option>
-      <option value="Premium Unlimited">Premium Unlimited</option>
-    </select>
+<label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
 
-    <button type="submit">Submit</button>
-    <button type="button" onclick="subscribe()">Subscribe</button>
-  </form>
+<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+
+<label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+
+Product Interest:<select  id="00N61000007UK7w" name="00N61000007UK7w" title="Product Interest"><option value="">--None--</option><option value="GC1000 series">GC1000 series</option>
+<option value="GC5000 series">GC5000 series</option>
+<option value="GC3000 series">GC3000 series</option>
+</select><br>
+
+<input type="submit" name="submit">
+
+</form>
 
   <script>
     function handleSubmit(event) {
